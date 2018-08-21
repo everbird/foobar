@@ -1,0 +1,80 @@
+#!/usr/bin/eni python
+# encoding: utf-8
+
+
+def answer(n):
+    if n == '0':
+        return 1
+
+    stack = [(long(n), 0)]
+    while stack:
+        _n, step = stack.pop()
+        if _n == 1:
+            return step
+
+        if _n % 2 == 0:
+            next_step = (_n >> 1, step+1)
+        elif (_n//2) % 2 == 1:
+            next_step = (_n + 1, step+1)
+        else:
+            next_step = (_n - 1, step+1)
+
+        stack.append(next_step)
+
+
+def test(f, testcases):
+    for input_args, expected in testcases:
+        if isinstance(input_args, tuple):
+            r = f(*input_args)
+        else:
+            r = f(input_args)
+
+        print (
+            'Result:{}\tInput:{}\tOutput:{}\tExpected:{}'
+            .format(
+                r == expected,
+                input_args,
+                r,
+                expected
+            )
+        )
+
+
+def unit_test():
+    pass
+
+
+if __name__ == '__main__':
+    import sys
+    argv = sys.argv
+    if len(argv) > 1:
+        print 'unit test mode'
+        unit_test()
+        sys.exit()
+
+    test(answer, [
+        (
+            '4',
+            2
+        ),
+        (
+            '15',
+            5
+        ),
+        (
+            '62',
+            7
+        ),
+        (
+            '0',
+            1
+        ),
+        (
+            '21123481763481637846871263487613827648716387426872136487612836487263846',
+            310
+        ),
+        (
+            '1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+            1232
+        )
+    ])
