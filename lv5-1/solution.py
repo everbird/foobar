@@ -149,7 +149,7 @@ def get_num_of_cycle_factorization(partition):
 
 ## TO GET THE NUM OF FACTORIZATION
 
- It obviously that STEP 1) and STEP 2) could be merged into the for loop in
+ It's obviously that STEP 1) and STEP 2) could be merged into the for loop in
  STEP 3)
 
  r = !n / ∏((k{j}**v)*!v)  (for j, v in c.items)
@@ -253,7 +253,7 @@ class Operator(object):
     * (2.7) & (2.8) is the definition could be used here directly.
     * Going through the whole section 2 is pretty helpful to understand why we
       calculate like this.
-    * A|B means A divies B  (B % A == 0)
+    * A|B means A divides B  (B % A == 0)
     * [a, b, c] means lcm(a, b, c)
 
     Ref: https://www.sciencedirect.com/science/article/pii/0012365X9390015L
